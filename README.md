@@ -1,5 +1,5 @@
 # Freddie API
-I found myself replicating the same methods and classes when creating Graphical Programs and I crated a library which helps you structure your Game/Graphics Enviroment with ease while being able to access lower levels of functionality.
+I found myself replicating the same methods and classes when creating Graphical Programs and I created a library which helps you structure your Game/Graphics Enviroment with ease while being able to access lower levels of functionality in Java.Examples of usage will be uploaded when their functionality develops.
 
 
 # Examples
@@ -34,9 +34,16 @@ class Game extends FCanvas {
     g.setColor(Color.red);
     g.fillRect(0, 0, rectW, rectH);
   }
+  
+}
 
 ```
 
 This results in the following window :
 ![](./res/Screenshots/FreddieAPI.png)
+
+
+# License
+  MIT 2019
+  
 
