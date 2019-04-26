@@ -11,7 +11,7 @@ abstract class FCanvas extends Canvas implements Runnable {
   private boolean running = false;
   private Thread thread;
 
-  private boolean FPSLOG;
+  private boolean FPSLOG = true;
   private Color background = Color.black;
 
 
@@ -35,6 +35,7 @@ abstract class FCanvas extends Canvas implements Runnable {
   }
 
   public void run() {
+
     init();
     this.requestFocus();
     long lastTime = System.nanoTime();
@@ -58,7 +59,7 @@ abstract class FCanvas extends Canvas implements Runnable {
 
       if (System.currentTimeMillis() - timer > 1000) {
         timer = timer + 1000;
-        if (FPSLOG)
+        if (this.FPSLOG)
           System.out.println("FPS: " + frames + " " + "Ticks: " + updates);
         frames = 0;
         updates = 0;
@@ -76,18 +77,19 @@ abstract class FCanvas extends Canvas implements Runnable {
     }
 
     Graphics g = bs.getDrawGraphics();
-    ////////////
+
+
     g.setColor(background);
     g.fillRect(0, 0, getWidth(), getHeight());
-    draw(g); //Modify only the part between comments
-    ////////////
+    draw(g);
+
     g.dispose();
     bs.show();
 
   }
 
-  public void setFPSLOG(boolean s) {
-    FPSLOG = s;
+  public void setFPSLOG(boolean status) {
+    this.FPSLOG = status;
   }
 
   /**

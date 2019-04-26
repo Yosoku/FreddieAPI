@@ -11,11 +11,11 @@ public class FWindow extends JFrame {
   *  <p>
   *  @see FCanvas
   */
-    FWindow(int w, int h, String title, Component comp){
-        this.setSize(new Dimension(w,h));
-        this.setTitle(title);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.add(comp);
-        this.setVisible(true);
-    }
+  FWindow(int w, int h, String title, Component comp) {
+    this.setSize(new Dimension(w, h));
+    this.setTitle(title);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.add(comp);
+    this.setVisible(true);
+  }
 }
