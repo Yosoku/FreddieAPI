@@ -1,11 +1,9 @@
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
-import java.awt.Font;
-import java.awt.Dimension;
+package app;
 
-abstract class FCanvas extends Canvas implements Runnable {
+import java.awt.*;
+import java.awt.image.BufferStrategy;
+
+public abstract class FCanvas extends Canvas implements Runnable {
   public int width;
   public  int height;
   private boolean running = false;
@@ -32,8 +30,12 @@ abstract class FCanvas extends Canvas implements Runnable {
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-  }
+    }
 
+  /**
+  * Main program loop,it calls init once to initialize variables and runs the game loop
+  * @see <a href="https://gameprogrammingpatterns.com/game-loop.html">Game Loops</a>
+  */
   public void run() {
 
     init();
@@ -68,26 +70,29 @@ abstract class FCanvas extends Canvas implements Runnable {
     }
     stop();
   }
-
+  /**
+  * Render method is called as much as possible in the main loop and it is used to draw on the Canvas
+  * First time its called it creates a tripple Buffered strategy to get a Graphics context and uses
+  * that graphics object to draw and clear the screen.
+  */
   private void render() {
     BufferStrategy bs = this.getBufferStrategy();
     if (bs == null) {
       this.createBufferStrategy(3);
       return;
     }
-
     Graphics g = bs.getDrawGraphics();
-
-
     g.setColor(background);
     g.fillRect(0, 0, getWidth(), getHeight());
     draw(g);
-
     g.dispose();
     bs.show();
-
   }
 
+  /**
+  * Setter method for Logging Fps on the Console
+  * @param status New status for the FPS logger
+  */
   public void setFPSLOG(boolean status) {
     this.FPSLOG = status;
   }

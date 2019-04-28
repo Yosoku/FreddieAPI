@@ -38,4 +38,4 @@ class Game extends FCanvas {
 ```
 
 This results in the following window :
-![](./res/FreddieAPI.png)
+![](./res/Screenshots/FreddieAPI.png)
